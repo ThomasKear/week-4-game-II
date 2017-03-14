@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My crystal game</title>
+    <!-- my reset lin-->
+    <link rel="stylesheet" type="text/css" href="assets\css\reset.css">
+    <!-- my bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- link to the css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+	<div id="background">
+		<img src="assets/images/cutekid.jpg" class="stretch" alt="scarybackground"/>
+	</div>
+
+    <!-- big banging header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center">Crystal Game of DOOM!!!</h1>
+            </div>
+        </div>
+    </div>
+    <!-- end header -->
+    <!-- begin jumbotron -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="jumbotron">
+                    <h2 class="text-center">RULES TO YOUR DOOM</h2>
+                    <p>At the beginning of the game you will be assigned a number. By clicking on one of the four skull crystals you add a specific amount of points to your total score.
+                        <br> You win the game when your total score equals the assigned number. You lose if your total score goes over the assigned number.
+                        <br> The values of the crystals change at the beginning of each round.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end jumbtron -->
+    <!-- begin the win/lose message -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-offset-2 col-md-6">
+                <div id="winOrLose">
+                    <div id="restartGame">
+                        Click here to lose again.
+                    </div>
+                    <div id="iwon">
+                        <h3>Yay, you win.  Still a loser though</h3>
+                    </div>
+                    <div id="ilost">
+                        Dude. How could you possibly lose? Wannta try again so you don't feel so inadequate?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End the win/lose message -->
+    <!-- Begin containers -->
+    <div class="container">
+        <div class="row">
+            <!-- Computer guess panel -->
+            <div class="col-xs-3 col-md-3">
+                <div class="panel panel-heading">
+                    <div class="">
+                        <!--Target number  -->
+                        <div class="panel-heading">
+                            <h3>Target Score: <span id="targetScore"></span></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End computer guess panel -->
+            <!-- begin players guesses' total -->
+            <div class="col-xs-3 col-md-3">
+                <div class="panel panel-heading">
+                    <div class="panel-heading">
+                        <h3>Guesses Total: <span id="playerGuessTotal">
+                       
+                        </span></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- end players guesses' total -->
+            <!-- begin display win -->
+            <div class="col-xs-3 col-md-3">
+                <div class="panel panel-heading">
+                    <div class="panel-heading">
+                        <h3>Total Wins:
+                        <div id="playerWins"></div></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- end win display -->
+            <!-- begin display losses -->
+            <div class="col-xs-3 col-md-3">
+                <div class="panel panel-heading">
+                    <div class="panel-heading">
+                        <h3>Total Losses:
+                        <div id="playerLoses"></div></h3>
+                    </div>
+                </div>
+            </div>
+            <!--end lose display  -->
+        </div>
+    </div>
+    <!-- end containers -->
+    <!-- begin crystals -->
+    <div class="container">
+        <div class="row">
+            <div id="skulls">
+                <div class="col-xs-3 col-md-3">
+                    <div id="skull1">
+                        <img class="skull" src="assets/images/blueSkull.jpg" alt="blueSkull" height="250" width="100%" />
+                    </div>
+                </div>
+                <div class="col-xs-3 col-md-3">
+                    <div id="skull2">
+                        <img class="skull" src="assets/images/mosaicSkull.jpg" alt="mosaicSkull" height="250" width="100%" />
+                    </div>
+                </div>
+                <div class="col-xs-3 col-md-3">
+                    <div id="skull3">
+                        <img class="skull" src="assets/images/purpleSkull.jpg" alt="purpleSkull" height="250" width="100%" />
+                    </div>
+                </div>
+                <div class="col-xs-3 col-md-3">
+                    <div id="skull4">
+                        <img class="skull" src="assets/images/splitSkull.jpg" alt="splitSkull" height="250" width="100%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end crystals -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="assets\javascript\game.js"></script>
+</body>
+
+</html>
