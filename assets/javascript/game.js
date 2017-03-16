@@ -8,7 +8,7 @@ var playerLoses = 0;
 var userCounter = 0;
 var targetMin = 19;
 var targetMax = 120;
-var globalDebug = false;  //to turn on the console.log, make variable true; otherwise set to false; so that there is no cheating :)
+var globalDebug = false; //to turn on the console.log, make variable true; otherwise set to false; so that there is no cheating :)
 var hasUserFinished = false;
 
 // associate array containing the random vaules of the individual skulls
@@ -29,16 +29,16 @@ function startGame() {
     targetNumber = getRandomArbitrary(targetMin, targetMax);
     // publishes the targetNumber to the console when var set to true
     debugPrint("TargetNumber was: " + targetNumber);
-    // pulishes the objective number to the document
+    // publishes the objective number to the document
     $("span#targetScore").text(targetNumber);
     //In case of restart make sure the winorlose window sections are hidden
     // $("div#setWinOrLose").hide();
     // 
     $("div#winOrLose").hide();
 
-    hasUserFinished=false;
-    userCounter=0;
-    
+    hasUserFinished = false;
+    userCounter = 0;
+
 
 
     // This function will assign individual skulls unique numerical value
@@ -59,6 +59,7 @@ function startGame() {
         }
 
     }
+    // this will publish the individual skulls value in the console for testing
     for (var skull in skulls) {
         debugPrint("skull name " + skull + " value " + skulls[skull]);
     }
@@ -68,28 +69,21 @@ function startGame() {
     counter = 0;
 }
 
-// 
+// this will publish the players skull total as the player presses the key into the console
 function incrementAndTest(incomingKey) {
     debugPrint(incomingKey);
     debugPrint(skulls[incomingKey]);
     userCounter += skulls[incomingKey];
 }
 
-/**
- * getRandomArbitrary modified from stackoverflow example:
- * http://stackoverflow.com/questions/38178225/random-numbers-javascript
- */
+// getRandomArbitrary modified from stackoverflow example:
+// http://stackoverflow.com/questions/38178225/random-numbers-javascript
 function getRandomArbitrary(min, max) {
     var r = Math.floor(Math.random() * (max - min + 1) + min);
     return r;
 }
 
-/**
- * debugPrint only prints when var globaDebug * is set to true. Useful for printing 
- * backend logic information when debugging.
- * @param {string} the message you wish to 
- * print
- */
+// debugPrint only prints when var globaDebug * is set to true. Useful for printing backend logic information when debugging. @param {string} the message you wish to print
 function debugPrint(msg) {
     if (globalDebug == true) {
         console.log(msg)
@@ -97,8 +91,6 @@ function debugPrint(msg) {
 }
 
 //Set the target number to display to the #targetScore ID
-
-
 function setWinOrLose() {
     //check to see if the user already won or lost
     if (!hasUserFinished) {
@@ -111,27 +103,27 @@ function setWinOrLose() {
             $("div#ilost").text("Oh NOES... you lost " + playerLoses);
             $("div#playerLoses").text(playerLoses);
         } else {
+            hasUserFinished
             playerWins += 1;
             $("div#iwon").show();
             $("div#ilost").hide();
-            $("div#iwon").text("Ooh yeahs, you are almost losing less than you	won... NOT");
+            $("div#iwon").text("Ooh yeahs, you are almost losing less than you  won... NOT");
             $("div#playerWins").text(playerWins);
         }
         $("div#winOrLose").show();
     }
 }
 
-// Change HTML to reflect round conditions
-//$('playerWins')
-
-
 // MAIN PROCESS
 // ***************************************
 startGame();
 
- 
+// this makes the skull clickable
 $("img.skull").click(function() {
+    // this gets the parents containers "Id" attribute to usse the as the associative array key, which will then give the appropriate associative value to increment the current user counter 
     incrementAndTest($(this).parent().attr('id'));
+
+    // this is to trigger the win or lose statement
     if (userCounter >= targetNumber) {
         setWinOrLose();
 
@@ -139,11 +131,10 @@ $("img.skull").click(function() {
     //alert(userCounter);
     $("span#playerGuessTotal").text(userCounter);
 
-
-
-
 });
 
-$("div#restartGame").click(function() {	
-	startGame();
+
+// When the player clicks the published text, the gamerestarts
+$("div#restartGame").click(function() {
+    startGame();
 });
